@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Previous Internship Report</title>
+    <script src="https://cdn.pulse.is/livechat/loader.js" data-live-chat-id="666bb94ef3c405b3bb01fc5b" async></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+    
+        body {
+            font-family: Arial, sans-serif;
+            background-image: linear-gradient(90deg, #020024 0%, #090979 15%, #00d4ff 100%);
+            color: #000000; 
+        }
+    
+        /* Navigation Bar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #1a237e; /* Dark Blue */
+            padding: 10px 20px;
+        }
+    
+        .navbar .nav-links {
+            display: flex;
+            align-items: center;
+        }
+    
+        .navbar .nav-links a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            transition: background 0.3s;
+            font-size: 16px;
+            background: linear-gradient(to bottom, #1a237e 0%, #0d47a1 100%);
+        }
+    
+        .navbar .nav-links a:hover {
+            background: linear-gradient(to bottom, #0d47a1 0%, #01579b 100%);
+        }
+    
+        .navbar .profile {
+            display: flex;
+            align-items: center;
+            color: white;
+        }
+    
+        .navbar .profile img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-left: 10px;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+    
+        /* Main Content */
+        h1 ,h5,h3{
+            background: linear-gradient(to right, #66aee8, #42a5f5); /* Light Blue gradient */
+            color: white;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+    
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background-color: #ffffff; /* White background */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+    
+        th, td {
+            padding: 15px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+    
+        th {
+            background-color: #f2f2f2;
+            font-size: 18px;
+            font-weight: bold;
+            background: linear-gradient(to bottom, #f2f2f2 0%, #e6e6e6 100%);
+        }
+    
+        td {
+            font-size: 16px;
+        }
+    
+        img {
+            width: 150px;
+            height: 100px;
+            object-fit: cover;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+    
+        /* Previous Report Button */
+        .previous-report-button {
+            text-align: center;
+            margin: 20px 0;
+        }
+    
+        .previous-report-button button {
+            padding: 12px 24px;
+            font-size: 16px;
+            border-radius: 4px;
+            background-color: #333bd2;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+    
+        .previous-report-button button:hover {
+            background-color: #304ccd;
+        }
+    
+        /* Visitor Count */
+        .visitor-count {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+        }
+    
+        /* Footer */
+        .footer {
+            background-color: #1a237e;
+            color: white;
+            text-align: center;
+            padding: 15px 20px;
+            bottom: 0;
+            width: 100%;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+        </div>
+        <div class="profile">
+            <span style="color: white; font-size: 16px;"></span>
+            <img src="ASHWINI.jpg" alt="Admin Profile Picture">
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <h1>Internship Report</h1>
+    <table id="reportTable">
+        <thead>
+            <tr>
+                <th>Internship Diary</th>
+                <th>Day Image</th>
+                <th>Work Project Details</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Rows will be added dynamically here -->
+        </tbody>
+    </table>
+
+    <!-- Footer -->
+    <div class="footer">
+        &copy; 2024 Ashwini Internship Report. All rights reserved.
+    </div>
+
+    <script>
+        function parseQueryString() {
+            const queryString = window.location.search;
+            const urlParams = new URLSearchParams(queryString);
+            return urlParams.get('data');
+        }
+
+        function displayPreviousReport() {
+            const reportDataJson = parseQueryString();
+            if (reportDataJson) {
+                const reportData = JSON.parse(decodeURIComponent(reportDataJson));
+
+                const tbody = document.querySelector('#reportTable tbody');
+                reportData.forEach(entry => {
+                    const row = document.createElement('tr');
+
+                    const diaryCell = document.createElement('td');
+                    const diaryImg = document.createElement('img');
+                    diaryImg.src = entry.diaryImg;
+                    diaryImg.alt = 'Internship Diary';
+                    diaryCell.appendChild(diaryImg);
+                    row.appendChild(diaryCell);
+
+                    const dayCell = document.createElement('td');
+                    const dayImg = document.createElement('img');
+                    dayImg.src = entry.dayImg;
+                    dayImg.alt = 'Internship Day';
+                    dayCell.appendChild(dayImg);
+                    row.appendChild(dayCell);
+
+                    const projectCell = document.createElement('td');
+                    projectCell.textContent = entry.projectDetails;
+                    row.appendChild(projectCell);
+
+                    const dateCell = document.createElement('td');
+                    dateCell.textContent = entry.date;
+                    row.appendChild(dateCell);
+
+                    tbody.appendChild(row);
+                });
+            } else {
+                alert('No data found.');
+            }
+        }
+
+        // Call function to display previous report
+        displayPreviousReport();
+    </script>
+</body>
+</html>
