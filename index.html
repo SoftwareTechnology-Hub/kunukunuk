@@ -98,8 +98,8 @@
         }
     
         img {
-            width: 90px;
-            height: 90px;
+            width: 80px;
+            height: 80px;
             object-fit: cover;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
@@ -225,7 +225,7 @@
         // Function to populate latest entries on page load
         function populateLatestEntries() {
             const tbody = document.querySelector('#reportTable tbody');
-            reportData.slice(0, 2).forEach(entry => {
+            reportData.slice(0, 3).forEach(entry => {
                 const row = document.createElement('tr');
 
                 const diaryCell = document.createElement('td');
